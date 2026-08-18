@@ -1,19 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btnMaisTresA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mais Três"
+            />
+
+        <Button
+            android:id="@+id/btnMaisUmA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mais Um"
+            />
+
+        <TextView
+            android:id="@+id/tvCounterA"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="48sp"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnReiniciar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Reiniciar valor"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/tvCounterB"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="0"
+            android:textSize="48sp"
+            />
+
+        <Button
+            android:id="@+id/btnMaisUmB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mais Um"
+            />
+
+        <Button
+            android:id="@+id/btnMaisTresB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mais Três"
+            />
+    </LinearLayout>
+
+</LinearLayout>
