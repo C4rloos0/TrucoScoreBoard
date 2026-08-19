@@ -39,6 +39,12 @@ class MainActivity : AppCompatActivity() {
             binding.tvCounterB.text = counterBInt.toString()
         }
 
+        binding.btnReiniciar.setOnClickListener {
+            counterAInt = 0
+            counterBInt = 0
+            binding.tvCounterA.text = counterAInt.toString()
+            binding.tvCounterB.text = counterBInt.toString()
+        }
 
     }
 }
