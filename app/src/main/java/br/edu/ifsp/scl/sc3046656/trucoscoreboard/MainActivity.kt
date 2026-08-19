@@ -1,6 +1,7 @@
 package br.edu.ifsp.scl.sc3046656.trucoscoreboard
 
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.scl.sc3046656.trucoscoreboard.databinding.ActivityMainBinding
 
@@ -8,43 +9,68 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
 
+    var counterA = 0
+    var counterB = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val counterA = binding.tvCounterA.text.toString()
-        var counterAInt = counterA.toInt()
-
-        val counterB = binding.tvCounterB.text.toString()
-        var counterBInt = counterB.toInt()
-
         binding.btnMaisUmA.setOnClickListener {
-            counterAInt = (counterAInt + 1).coerceAtMost(12)
-            binding.tvCounterA.text = counterAInt.toString()
+            counterA = (counterA + 1).coerceAtMost(12)
+            atualizaValores()
         }
 
         binding.btnMaisTresA.setOnClickListener {
-            counterAInt = (counterAInt + 3).coerceAtMost(12)
-            binding.tvCounterA.text = counterAInt.toString()
+            counterA = (counterA + 3).coerceAtMost(12)
+            atualizaValores()
         }
 
         binding.btnMaisUmB.setOnClickListener {
-            counterBInt = (counterBInt + 1).coerceAtMost(12)
-            binding.tvCounterB.text = counterBInt.toString()
+            counterB = (counterB + 1).coerceAtMost(12)
+            atualizaValores()
         }
 
         binding.btnMaisTresB.setOnClickListener {
-            counterBInt = (counterBInt + 3).coerceAtMost(12)
-            binding.tvCounterB.text = counterBInt.toString()
+            counterB = (counterB + 3).coerceAtMost(12)
+            atualizaValores()
         }
 
         binding.btnReiniciar.setOnClickListener {
-            counterAInt = 0
-            counterBInt = 0
-            binding.tvCounterA.text = counterAInt.toString()
-            binding.tvCounterB.text = counterBInt.toString()
+            counterA = 0
+            counterB = 0
+            atualizaValores()
         }
 
     }
+
+    private fun atualizaValores(){
+        binding.tvCounterA.text = counterA.toString()
+        binding.tvCounterB.text = counterB.toString()
+
+
+        if(counterA == 12){
+            mostrarPopUp("A")
+        }
+
+        if(counterB == 12){
+            mostrarPopUp("B")
+        }
+    }
+
+    private fun mostrarPopUp(time:String){
+        AlertDialog.Builder(this)
+            .setTitle("Fim de Jogo")
+            .setMessage("Time $time Venceu")
+            .setPositiveButton("Nova Partida") { dialog, _->
+                counterA = 0
+                counterB = 0
+                atualizaValores()
+                dialog.dismiss()
+            }
+            .setCancelable(false)
+            .show()
+    }
+
 }
