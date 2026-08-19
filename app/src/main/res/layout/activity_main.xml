@@ -6,6 +6,7 @@
     android:padding="16dp">
 
     <LinearLayout
+        android:id="@+id/llTimeA"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -45,6 +46,7 @@
 
 
     <LinearLayout
+        android:id="@+id/llTimeB"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

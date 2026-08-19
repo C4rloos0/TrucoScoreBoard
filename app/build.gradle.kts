@@ -5,7 +5,7 @@ plugins {
 android {
     namespace = "br.edu.ifsp.scl.sc3046656.trucoscoreboard"
     compileSdk {
-        version = release(35)
+        version = release(37)
     }
 
     defaultConfig {
@@ -24,6 +24,10 @@ android {
                 enable = false
             }
         }
+    }
+
+    buildFeatures{
+        viewBinding = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
