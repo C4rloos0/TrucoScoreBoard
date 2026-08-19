@@ -35,6 +35,15 @@
             android:text="0"
             android:textSize="48sp"
             />
+
+        <TextView
+            android:id="@+id/tvMaodeOnzeA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mão de Onze para o Time A"
+            android:gravity="center"
+            android:visibility="gone"
+            />
     </LinearLayout>
 
     <Button
@@ -52,6 +61,15 @@
         android:layout_weight="1"
         android:orientation="vertical"
         android:gravity="center">
+        <TextView
+            android:id="@+id/tvMaodeOnzeB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mão de Onze para o Time B"
+            android:gravity="center"
+            android:visibility="gone"
+            />
+
         <TextView
             android:id="@+id/tvCounterB"
             android:layout_width="match_parent"

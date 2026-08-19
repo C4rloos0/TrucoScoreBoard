@@ -1,6 +1,7 @@
 package br.edu.ifsp.scl.sc3046656.trucoscoreboard
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.scl.sc3046656.trucoscoreboard.databinding.ActivityMainBinding
@@ -40,6 +41,8 @@ class MainActivity : AppCompatActivity() {
         binding.btnReiniciar.setOnClickListener {
             counterA = 0
             counterB = 0
+            binding.btnMaisUmA.visibility = View.VISIBLE
+            binding.btnMaisUmB.visibility = View.VISIBLE
             atualizaValores()
         }
 
@@ -48,14 +51,33 @@ class MainActivity : AppCompatActivity() {
     private fun atualizaValores(){
         binding.tvCounterA.text = counterA.toString()
         binding.tvCounterB.text = counterB.toString()
+        binding.tvMaodeOnzeA.visibility = View.INVISIBLE
+        binding.tvMaodeOnzeB.visibility = View.INVISIBLE
 
+
+
+        if(counterA == 11){
+            binding.btnMaisUmA.visibility = View.INVISIBLE
+            binding.btnMaisUmB.visibility = View.INVISIBLE
+            binding.tvMaodeOnzeA.visibility = View.VISIBLE
+        }
+
+        if(counterB == 11){
+            binding.btnMaisUmA.visibility = View.INVISIBLE
+            binding.btnMaisUmB.visibility = View.INVISIBLE
+            binding.tvMaodeOnzeB.visibility = View.VISIBLE
+        }
 
         if(counterA == 12){
             mostrarPopUp("A")
+            binding.btnMaisUmA.visibility = View.VISIBLE
+            binding.btnMaisUmB.visibility = View.VISIBLE
         }
 
         if(counterB == 12){
             mostrarPopUp("B")
+            binding.btnMaisUmA.visibility = View.VISIBLE
+            binding.btnMaisUmB.visibility = View.VISIBLE
         }
     }
 
