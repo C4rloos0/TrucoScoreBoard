@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     var counterA = 0
     var counterB = 0
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -41,8 +42,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnReiniciar.setOnClickListener {
             counterA = 0
             counterB = 0
-            binding.btnMaisUmA.visibility = View.VISIBLE
-            binding.btnMaisUmB.visibility = View.VISIBLE
+            mostrarBotoes()
             atualizaValores()
         }
 
@@ -57,28 +57,30 @@ class MainActivity : AppCompatActivity() {
 
 
         if(counterA == 11){
-            binding.btnMaisUmA.visibility = View.INVISIBLE
-            binding.btnMaisUmB.visibility = View.INVISIBLE
+            binding.btnMaisTresA.visibility = View.INVISIBLE
             binding.tvMaodeOnzeA.visibility = View.VISIBLE
         }
 
         if(counterB == 11){
-            binding.btnMaisUmA.visibility = View.INVISIBLE
-            binding.btnMaisUmB.visibility = View.INVISIBLE
+            binding.btnMaisTresB.visibility = View.INVISIBLE
             binding.tvMaodeOnzeB.visibility = View.VISIBLE
         }
 
-        if(counterA == 12){
+        if(counterA == 12) {
             mostrarPopUp("A")
-            binding.btnMaisUmA.visibility = View.VISIBLE
-            binding.btnMaisUmB.visibility = View.VISIBLE
+
         }
 
         if(counterB == 12){
             mostrarPopUp("B")
-            binding.btnMaisUmA.visibility = View.VISIBLE
-            binding.btnMaisUmB.visibility = View.VISIBLE
         }
+    }
+
+    private fun mostrarBotoes(){
+        binding.btnMaisUmA.visibility = View.VISIBLE
+        binding.btnMaisTresA.visibility = View.VISIBLE
+        binding.btnMaisUmB.visibility = View.VISIBLE
+        binding.btnMaisTresB.visibility = View.VISIBLE
     }
 
     private fun mostrarPopUp(time:String){
@@ -88,6 +90,7 @@ class MainActivity : AppCompatActivity() {
             .setPositiveButton("Nova Partida") { dialog, _->
                 counterA = 0
                 counterB = 0
+                mostrarBotoes()
                 atualizaValores()
                 dialog.dismiss()
             }
